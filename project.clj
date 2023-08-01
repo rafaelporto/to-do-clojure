@@ -6,7 +6,9 @@
 
   :dependencies [[org.clojure/clojure "1.10.3"]
                  [http-kit "2.3.0"]
-                 [compojure "1.7.0"]]
+                 [compojure "1.7.0"]
+                 [prismatic/schema "1.4.1"]
+                 [org.clojure/data.json "2.4.0"]]
   
   :main to-do-clojure.server
   :repl-options {:init-ns to-do-clojure.server})
