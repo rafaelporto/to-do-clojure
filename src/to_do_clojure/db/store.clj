@@ -8,3 +8,8 @@
   [input :- model/ToDoInput]
   (swap! db assoc (:id input) input)
   input)
+
+(s/defn get-by-id :- model/ToDoInput
+  "Get an entity by id"
+  [id :- s/Int]
+  (get @db id))

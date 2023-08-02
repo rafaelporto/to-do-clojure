@@ -8,7 +8,8 @@
                  [http-kit "2.3.0"]
                  [compojure "1.7.0"]
                  [prismatic/schema "1.4.1"]
-                 [org.clojure/data.json "2.4.0"]]
+                 [org.clojure/data.json "2.4.0"]
+                 [ring/ring-json "0.5.1"]]
   
   :main to-do-clojure.server
   :repl-options {:init-ns to-do-clojure.server})
