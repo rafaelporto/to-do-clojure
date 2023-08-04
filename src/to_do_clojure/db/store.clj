@@ -1,15 +1,17 @@
 (ns to-do-clojure.db.store
-  (:require [to-do-clojure.components :refer [db]]
-            [to-do-clojure.models.to-do :as model]
-            [schema.core :as s]))
+  (:require [clojure.pprint :refer [pprint]]
+            [schema.core :as s]
+            [to-do-clojure.components :refer [db]]
+            [to-do-clojure.models.to-do :as model]))
 
-(s/defn upsert :- model/ToDoInput
+(s/defn upsert :- model/ToDoEntity
   "Upsert an entity"
-  [input :- model/ToDoInput]
+  [input :- model/ToDoEntity]
   (swap! db assoc (:id input) input)
+  (pprint @db)
   input)
 
-(s/defn get-by-id :- model/ToDoInput
+(s/defn get-by-id :- (s/maybe model/ToDoEntity)
   "Get an entity by id"
-  [id :- s/Int]
-  (get @db id))
+  [id :- s/Uuid]
+  ((get @db id)))

@@ -3,8 +3,9 @@
 
 (s/defschema ToDoInput
   "The input schema for a ToDo"
-  {:id s/Int
+  {(s/optional-key :id) s/Str
    :title s/Str
    :description s/Str
    :due-date s/Str
-   :priority s/Int})
+   :priority s/Int
+   :completed s/Bool})
